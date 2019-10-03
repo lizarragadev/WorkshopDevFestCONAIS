@@ -24,13 +24,9 @@ class PokemonAdapter(private val context: Context) : RecyclerView.Adapter<Pokemo
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val p = dataset[position]
 
-        val tf_prod = Typeface.createFromAsset(context.assets, "fonts/product_sans_bold.ttf")
-        holder.nombreTextView.typeface = tf_prod
+        // https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/
 
-        holder.nombreTextView.text = p.name
-        Glide.with(context)
-                .load("https://raw.githubusercontent.com/PokeAPI/sprites/master/sprites/pokemon/" + p.number + ".png")
-                .into(holder.fotoImageView)
+
     }
 
     override fun getItemCount(): Int {
@@ -43,7 +39,6 @@ class PokemonAdapter(private val context: Context) : RecyclerView.Adapter<Pokemo
     }
 
     inner class ViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val fotoImageView = itemView.findViewById(R.id.ivImagen) as ImageView
-        val nombreTextView = itemView.findViewById(R.id.tvNombre) as TextView
+
     }
 }
